@@ -67,11 +67,11 @@
    - 恢复之前缓存的现场分支
       - 用git stash apply恢复，但是恢复后，stash内容并不删除，你需要用git stash drop来删除
          git stash apply stash@{0} 恢复现场
-      - 用git stash pop，恢复的同时把stash内容也删了 
+      - 用git stash pop，恢复的同时把stash内容也删了  
    - 当前分支也存在以上修复的bug
      git cherry-pick 修复bugcommit快照id (在master分支上修复的bug，想要合并到当前dev分支，可以用git cherry-pick <commit>命令，把bug提交的修改“复制”到当前分支，避免重复劳动。)
 
-   -如果git pull提示no tracking information，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream-to <branch-name> origin/<branch-name>
+   -如果git pull提示no tracking information，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream-to=origin/master master
    -  git log --graph --pretty=oneline --abbrev-commit (查看分支合并图)
    
  - #### 标签
