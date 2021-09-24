@@ -18,7 +18,7 @@
     - 初始化本地库    
        - 方式一 git init    
        - 方式二 (idea)VCS - > Import into Version Control -> Create Git Repository     
- - #### 提交代
+ - #### 提交代码
    - 查看文件状态
        - git status 
    - 用命令git add告诉Git，把文件添加到stage：
@@ -86,3 +86,16 @@
   - git config --global alias.co checkout (git co == git checkout)
   - git config --global alias.ci commit   (git ci == git commit)
   - git config --global alias.br branch   (git br == git branch)
+  
+  
+           局域网
+           ip
+           路由器
+           子网掩码
+           网关
+           DNS
+           域名
+           交换机
+           
+  
+  
