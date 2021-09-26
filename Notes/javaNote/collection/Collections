@@ -1,0 +1,28 @@
+#  集合
+  为什么要在计算机中引入集合呢？这是为了便于处理一组类似的数据
+ - list 有序列表
+ - set 无序列表
+ - map 键值映射表
+   - 正确使用Map必须保证：
+      1. 作为key的对象必须正确覆写equals()方法，相等的两个key实例调用equals()必须返回true；
+           ```
+                           //判断对象相等，需重写equals
+                               @Override
+                               public boolean equals(Object obj) {
+                           
+                                   if(obj instanceof Person){
+                                       Person person = (Person) obj;
+                                       return Objects.equals(person.firstname,this.firstname)
+                                               && Objects.equals(person.lastname,this.lastname)
+                                               && this.age==person.age;
+                                   }
+                                   return false;
+                           
+                               }
+                           ```
+      2. 作为key的对象还必须正确覆写hashCode()方法，且hashCode()方法要严格遵循以下规范：
+             如果两个对象相等，则两个对象的hashCode()必须相等；
+             如果两个对象不相等，则两个对象的hashCode()尽量不要相等。
+             即对应两个实例a和b：
+             如果a和b相等，那么a.equals(b)一定为true，则a.hashCode()必须等于b.hashCode()；
+             如果a和b不相等，那么a.equals(b)一定为false，则a.hashCode()和b.hashCode()尽量不要相等。
