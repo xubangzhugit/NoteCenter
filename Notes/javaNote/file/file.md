@@ -44,6 +44,13 @@
    - java.io.Reader是所有字符输入流的超类， 
    FileReader:文件以字符的形式输入
    FileWriter:文件以字符的形式输出
+   CharArrayReader和StringReader:特殊的字符输入流
+   ```$xslt
+    除了特殊的CharArrayReader和StringReader，普通的Reader实际上是基于InputStream构造的，因为Reader需要从InputStream中读入字节流（byte），然后，根据编码设置，再转换为char就可以实现字符流。如果我们查看FileReader的源码，它在内部实际上持有一个FileInputStream。
+     既然Reader本质上是一个基于InputStream的byte到char的转换器，那么，如果我们已经有一个InputStream，想把它转换为Reader，是完全可行的。InputStreamReader就是这样一个转换器，它可以把任何InputStream转换为Readers
+   ```
+  ### writer
+  
    
    
    
