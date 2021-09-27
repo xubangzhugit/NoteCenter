@@ -1,5 +1,7 @@
 package javaNote.collection;
 
+import java.io.File;
+import java.io.IOException;
 import java.security.acl.LastOwnerException;
 import java.util.*;
 import java.util.logging.Logger;
@@ -13,6 +15,13 @@ public class Collection {
         String[] strings = listChangeArray();
         // array 转list
         List<String> strings1 = Arrays.asList(strings);
+        List<Person> per = new ArrayList<>();
+        //list 转 map
+        per.stream().collect(Collectors.toMap(i->{
+            return i.getFirstname();
+        },b->{
+            return b.getLastname();
+        }));
         //map
         traverse();
         //测试equals
@@ -36,6 +45,7 @@ public class Collection {
         strings.forEach(i->{
             logger.info(i+"线程安全集合");
         });
+
     }
 
     private static void testIterator() {
@@ -168,6 +178,31 @@ public class Collection {
 
 class Person{
     private String firstname;
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     private String lastname;
     private int age;
     public Person(String fname,String lname,int age){
