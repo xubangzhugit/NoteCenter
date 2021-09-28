@@ -43,24 +43,27 @@
    - Reader是Java的IO库提供的另一个输入流接口。和InputStream的区别是，InputStream是一个字节流，即以byte为单位读取，而Reader是一个字符流，即以char为单位读取
    - java.io.Reader是所有字符输入流的超类， 
    FileReader:文件以字符的形式输入
-   FileWriter:文件以字符的形式输出
    CharArrayReader和StringReader:特殊的字符输入流
    ```$xslt
     除了特殊的CharArrayReader和StringReader，普通的Reader实际上是基于InputStream构造的，因为Reader需要从InputStream中读入字节流（byte），然后，根据编码设置，再转换为char就可以实现字符流。如果我们查看FileReader的源码，它在内部实际上持有一个FileInputStream。
      既然Reader本质上是一个基于InputStream的byte到char的转换器，那么，如果我们已经有一个InputStream，想把它转换为Reader，是完全可行的。InputStreamReader就是这样一个转换器，它可以把任何InputStream转换为Readers
    ```
   ### writer
+   - FileWriter:文件以字符的形式输出
+   ```$xslt
+    Writer定义了所有字符输出流的超类：
+    FileWriter实现了文件字符流输出；
+    CharArrayWriter和StringWriter在内存中模拟一个字符流输出。
+    使用try (resource)保证Writer正确关闭。
+    Writer是基于OutputStream构造的，可以通过OutputStreamWriter将OutputStream转换为Writer，转换时需要指定编码。
+   ```
+   ### PrintStream
+   ### PrintWriter
+   ```$xslt
+    PrintStream是一种能接收各种数据类型的输出，打印数据时比较方便：
+    
+    System.out是标准输出；
+    System.err是标准错误输出。
+    PrintWriter是基于Writer的输出。
+   ```
   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   

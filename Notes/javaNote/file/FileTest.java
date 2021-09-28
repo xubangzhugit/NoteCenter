@@ -5,8 +5,12 @@ import javax.swing.plaf.basic.BasicTextAreaUI;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Logger;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -29,13 +33,23 @@ public class FileTest {
             //testWriteZip();
             //测试字符流读取数据
             //testReader();
-
+            //测试paths和files工具类（好用）
+            testFilesAndPaths();
 
         }catch(Exception e){
             e.printStackTrace();
         }finally{
 
         }
+    }
+
+    private static void testFilesAndPaths() throws IOException {
+        List<String> strings = Files.readAllLines(Paths.get("./Notes/javaNote/file/file.md"));
+        /*strings.stream().forEach(i->{
+            logger.info(i+"");
+        });*/
+        Path write = Files.write(Paths.get("./Notes/javaNote/file/file1.md"), strings);
+        logger.info(write.toString()+"写入完成");
     }
 
     private static void testReader() throws  Exception{
@@ -99,6 +113,7 @@ public class FileTest {
 
     private static void testfileInputStream() throws Exception{
         FileInputStream fs = new FileInputStream("D:\\NoteCenter\\Notes\\Notes\\javaNote\\java.md");
+        fs.available();//返回文件的字节大小
         byte[] by = new byte[1024];//保存临时读取到的字节
         int n ;
         while ((n = fs.read(by))!=-1){
