@@ -6,4 +6,4 @@
                 线程调度由操作系统决定，程序本身无法决定调度顺序；
                 Thread.sleep()可以把当前线程暂停一段时间
         ```
-![github](01.PNG "github") 
+![线程状态](images/01.PNG "github") 
