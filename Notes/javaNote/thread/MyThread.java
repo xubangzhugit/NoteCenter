@@ -1,5 +1,8 @@
 package javaNote.thread;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.logging.Logger;
 
 public class MyThread {
@@ -10,7 +13,14 @@ public class MyThread {
        Runnable runnable = new Runnable() {
            @Override
            public void run() {
-               logger.info("runnable执行"+Thread.currentThread().getName()+">>>");
+               while (true) {
+                   System.out.println(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:MM:ss").format(LocalDateTime.now()));
+                   try {
+                       Thread.sleep(1000);
+                   } catch (InterruptedException e) {
+                       break;
+                   }
+               }
            }
        };
        Thread t = new Thread(runnable);
