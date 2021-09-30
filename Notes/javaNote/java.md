@@ -1,4 +1,14 @@
 # java
+# 数组copy的方式
+ System.copyArray(Object src,int srcPos,Object dest,int destPos,int length); 
+     Object src : 原数组
+     int srcPos : 从元数据的起始位置开始
+     Object dest : 目标数组
+     int destPos : 目标数组的开始起始位置
+     int length : 要copy的数组的长度
+ for
+ clone
+ Arrays.copyOf()
 # 接口
  - 接口中定义的非default方法，实现类必须实现，接口中定义的default 方法，实现类可以选择性的实现。
  - import static java.lang.System.*;(可以导入一个类的静态字段和静态方法)
