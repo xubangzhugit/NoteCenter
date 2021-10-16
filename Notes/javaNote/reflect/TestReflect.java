@@ -51,7 +51,7 @@ public class TestReflect {
          * native: 256
          * interface: 512
          * abstract: 1024
-         * strict: 2048
+         * strict: 2048n
          */
         //所有public 字段
         Field[] fields = testClass.getFields();

@@ -45,7 +45,7 @@ class Parent {
 /**
  * 目标类
  */
-class Target extends Parent{
+class Target extends  Parent{
 
 }
 
