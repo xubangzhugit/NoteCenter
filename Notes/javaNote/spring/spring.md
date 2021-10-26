@@ -32,3 +32,24 @@ platformTransectionManager: 事务管理器的顶级接口
 @EnableTransactionManagement: 启用声明式事务：
 对需要事务支持的方法，添加@transectional注解
 事务只在当前线程传播，无法跨线程传播
+#### hibernate
+  @Transient: 表示该注解注释的字段不是从数据库中查询出。相当于查询数据数据忽略该字段
+  @PrePersist: 表示将一个bean持久化到数据库之前(insert语句),执行该注解下的方法。
+  ##### 查询方式
+   - Example 方式 (Query By Example) QBE
+     - hibernate 会将所有的非空属性拼接成where条件
+     ![方式一](image/1634712068(1).png)
+   - Criteria 方式 (Query By Criteria)QBC
+     - 通过DetachedCriteria  对象构建查询条件
+     ![方式二](image/1634712146(1).png)
+   - HQL 方式 
+     - 需要定义基于字符串形式的HQL查询语句
+     ![方式三](image/1634712287(1).png)
+   - namedQuery  
+     ![方式三](image/1634712385(1).png)
+#### JPA java persistence api
+   - JPA就是JavaEE的一个ORM标准
+    
+  
+  
+  
