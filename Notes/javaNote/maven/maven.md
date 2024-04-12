@@ -69,3 +69,18 @@
 在<repository>中，我们必须声明发布的Maven的repo地址，其中<id>和<name>可以任意填写，<url>填入
 GitHub Pages提供的地址+/maven-repo/后缀。现在，即可正常引用这个库
 ```
+```agsl
+//maven 打包指定模块
+mvn clean package -pl parent
+//打包某个具体的子模块
+mvn clean package -pl parent/child1
+//打包多个模块
+mvn clean package -pl parent/child1,parent/child2
+//同时打包指定模块的依赖模块(当前模块依赖的其他模块都将被打包)
+mvn clean package -pl parent/child1 -am
+//同时打包依赖于指定模块的模块(依赖于当前模块的都将被打包)
+mvn clean package -pl parent/child1 -amd
+
+
+
+```
